@@ -1,7 +1,7 @@
-package com.starkindustries.securitysystem.controller;
+package com.starkindustries.security_system.controller;
 
-import com.starkindustries.securitysystem.dto.SensorEventDTO;
-import com.starkindustries.securitysystem.service.DataProcessingService;
+import com.starkindustries.security_system.dto.SensorEventDTO;
+import com.starkindustries.security_system.service.DataProcessingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

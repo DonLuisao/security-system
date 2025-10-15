@@ -1,4 +1,4 @@
-package com.starkindustries.securitysystem;
+package com.starkindustries.security_system;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

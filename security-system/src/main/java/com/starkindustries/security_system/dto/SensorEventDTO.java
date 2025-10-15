@@ -1,4 +1,4 @@
-package com.starkindustries.securitysystem.dto;
+package com.starkindustries.security_system.dto;
 
 import lombok.Data;
 

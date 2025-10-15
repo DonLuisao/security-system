@@ -1,4 +1,4 @@
-package com.starkindustries.securitysystem.sensors;
+package com.starkindustries.security_system.sensors;
 
 import org.springframework.stereotype.Component;
 

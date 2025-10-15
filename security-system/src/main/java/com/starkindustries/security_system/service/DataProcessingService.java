@@ -1,7 +1,7 @@
-package com.starkindustries.securitysystem.service;
+package com.starkindustries.security_system.service;
 
-import com.starkindustries.securitysystem.dto.SensorEventDTO;
-import com.starkindustries.securitysystem.sensors.Sensor;
+import com.starkindustries.security_system.dto.SensorEventDTO;
+import com.starkindustries.security_system.sensors.Sensor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

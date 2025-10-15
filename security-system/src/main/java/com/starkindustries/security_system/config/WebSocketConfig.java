@@ -1,4 +1,4 @@
-package com.starkindustries.securitysystem.config;
+package com.starkindustries.security_system.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

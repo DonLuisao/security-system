@@ -1,4 +1,4 @@
-package com.starkindustries.securitysystem;
+package com.starkindustries.security_system;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
