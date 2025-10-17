@@ -11,7 +11,7 @@ Este proyecto implementa un sistema de seguridad avanzado y concurrente para Sta
 
 ---
 
-## Estructura del Proyecto
+## 📂 Estructura del Proyecto
 
 ### Archivos de Configuración
 - **pom.xml**: dependencias necesarias para la seguridad y dependencias, hemos utilizado Spring Boot y Loombok
@@ -122,9 +122,4 @@ El sistema simula la recepción de datos de diferentes tipos de sensores (movimi
 
 
 
-\## 📂 Estructura del Proyecto
-
-
-
-El código está organizado siguiendo las mejores prácticas de una aplicación Spring Boot:
 
