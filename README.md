@@ -56,7 +56,7 @@ El sistema simula la recepción de datos de diferentes tipos de sensores (movimi
 
 
 
-\## ✨ Características Principales
+## ✨ Características Principales
 
 
 
