@@ -1,20 +1,50 @@
-\# Stark Industries - Sistema de Seguridad Concurrente
+# Stark Industries - Sistema de Seguridad Concurrente
 
+## Miembros del grupo:
+- Luis
+- Juan Pablo Lobato
 
-
+## Descripción del proyecto
 Este proyecto implementa un sistema de seguridad avanzado y concurrente para Stark Industries, desarrollado con \*\*Spring Boot\*\*. El sistema está diseñado para procesar datos de múltiples sensores en tiempo real, generar alertas inmediatas y visualizarlas en un dashboard dinámico.
-
-
-
-
 
 
 
 ---
 
+## Estructura del Proyecto
 
+### Archivos de Configuración
+- **pom.xml**: dependencias necesarias para la seguridad y dependencias, hemos utilizado Spring Boot y Loombok
+- **Aplication.properties**:
 
-\## 📜 Resumen
+### Modelos (model/)
+
+### Servicios (service/)
+
+### Controladores (controller/)
+
+### Configuración (config/)
+
+---
+
+## Lógica de Solución
+### Gestión de sensores
+### Procesamiento concurrente
+### Spring Security
+### Notificaciones en tiempo real
+### Monitorización
+
+---
+
+## Cómo Ejeuctar
+1. Debe tener Java 17+ en su dispositivo
+2. Navega al direcotroio del proyecto
+3. Ejecuta: 'mvn spring-boot:run'
+4. El sistema estara disponible en el puerto 8080 (hhtps://localhost:8080), siempre y cuando este vacío. 
+
+---
+
+## 📜 Resumen
 
 
 
