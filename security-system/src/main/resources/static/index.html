@@ -3,109 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stark Industries - Security Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        body {
-            background-color: #1a1a1a;
-            color: #e0e0e0;
-        }
-        .navbar, .card {
-            background-color: #2c2c2e;
-            border: 1px solid #444;
-        }
-        .card-header {
-            background-color: #1c1c1e;
-            border-bottom: 1px solid #444;
-            font-weight: bold;
-        }
-        .table {
-            color: #e0e0e0;
-        }
-        .table-dark th { background-color: #1c1c1e; }
-        .alert-danger.real-time {
-            background-color: #5d1a1a;
-            border-color: #8b2828;
-            color: #fff;
-        }
-        .status-online { color: #28a745; font-weight: bold; }
-        .status-offline { color: #dc3545; font-weight: bold; }
-    </style>
+    <title>Stark Industries - Security System</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark mb-4">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Stark Industries Security</a>
-        <span class="navbar-text ms-auto">
-                System Status: <span id="system-status">Connecting...</span>
-            </span>
+<div class="dashboard-container">
+    <div class="header">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h1>🛡️ Stark Industries Security System</h1>
+                <p class="mb-0 text-muted">Sistema de Monitorización en Tiempo Real</p>
+            </div>
+            <div>
+                    <span id="connectionStatus" class="connection-status status-disconnected">
+                        Desconectado
+                    </span>
+            </div>
+        </div>
     </div>
-</nav>
 
-<div class="container-fluid">
     <div class="row">
-        <div class="col-lg-4">
-            <div class="card mb-4">
-                <div class="card-header">Key Metrics (Last 24h)</div>
-                <div class="card-body">
-                    <div class="row text-center">
-                        <div class="col-6">
-                            <div class="p-3 bg-dark rounded">
-                                <h5>Total Events</h5>
-                                <h2 id="total-events" class="display-6">0</h2>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="p-3 bg-danger rounded">
-                                <h5>Critical Alerts</h5>
-                                <h2 id="critical-alerts" class="display-6">0</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <div class="col-md-3">
+            <div class="metric-card text-center">
+                <div class="metric-value" id="totalEvents">0</div>
+                <div class="metric-label">Total Eventos</div>
             </div>
-
-            <div class="card mb-4">
-                <div class="card-header">Sensor Activity</div>
-                <div class="card-body">
-                    <canvas id="sensorActivityChart" style="min-height: 250px;"></canvas>
-                </div>
+        </div>
+        <div class="col-md-3">
+            <div class="metric-card text-center">
+                <div class="metric-value text-danger" id="totalAlerts">0</div>
+                <div class="metric-label">Alertas Críticas</div>
             </div>
+        </div>
+        <div class="col-md-2">
+            <div class="metric-card text-center">
+                <div class="metric-value text-info" id="movementEvents">0</div>
+                <div class="metric-label">Movimiento</div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="metric-card text-center">
+                <div class="metric-value text-warning" id="temperatureEvents">0</div>
+                <div class="metric-label">Temperatura</div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="metric-card text-center">
+                <div class="metric-value text-success" id="accessEvents">0</div>
+                <div class="metric-label">Acceso</div>
+            </div>
+        </div>
+    </div>
 
-            <div class="card">
-                <div class="card-header">Real-Time Alerts Feed</div>
-                <div class="card-body" id="alerts-feed" style="max-height: 350px; overflow-y: auto;">
-                    <p class="text-muted text-center">Waiting for alerts...</p>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="chart-container">
+                <h5>📊 Distribución por Tipo de Sensor</h5>
+                <canvas id="sensorChart"></canvas>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="event-table">
+                <h5>🚨 Alertas Recientes</h5>
+                <div id="alertsContainer" style="max-height: 400px; overflow-y: auto;">
+                    <p class="text-muted">No hay alertas recientes...</p>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="col-lg-8">
-            <div class="card">
-                <div class="card-header">Event History</div>
-                <div class="card-body">
-                    <table class="table table-dark table-hover">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Sensor</th>
-                            <th>Location</th>
-                            <th>Data</th>
-                            <th>Timestamp</th>
-                        </tr>
-                        </thead>
-                        <tbody id="event-history-body">
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+    <div class="event-table">
+        <h5>📋 Últimos Eventos del Sistema</h5>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo</th>
+                    <th>Ubicación</th>
+                    <th>Resultado</th>
+                    <th>Timestamp</th>
+                    <th>Estado</th>
+                </tr>
+                </thead>
+                <tbody id="eventsTableBody">
+                <tr>
+                    <td colspan="6" class="text-center text-muted">Cargando eventos...</td>
+                </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.6.1/sockjs.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
-<script src="app.js"></script>
+<script src="dashboard.js"></script>
 </body>
 </html>
