@@ -1,6 +1,6 @@
 package com.starkindustries.security_system.controller;
 
-import com.starkindustries.security_system.dto.SensorEventDTO;
+import com.starkindustries.security_system.model.SensorEvent;
 import com.starkindustries.security_system.repository.SensorEventRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,14 +19,14 @@ public class DashboardController {
     private SensorEventRepository sensorEventRepository;
 
     @GetMapping("/alerts")
-    public ResponseEntity<List<SensorEventDTO>> getAllAlerts() {
-        List<SensorEventDTO> alerts = sensorEventRepository.findByIsAlertTrue();
+    public ResponseEntity<List<SensorEvent>> getAllAlerts() {
+        List<SensorEvent> alerts = sensorEventRepository.findByIsAlertTrue();
         return ResponseEntity.ok(alerts);
     }
 
     @GetMapping("/recent-events")
-    public ResponseEntity<List<SensorEventDTO>> getRecentEvents() {
-        List<SensorEventDTO> events = sensorEventRepository.findTop10ByOrderByTimestampDesc();
+    public ResponseEntity<List<SensorEvent>> getRecentEvents() {
+        List<SensorEvent> events = sensorEventRepository.findTop10ByOrderByTimestampDesc();
         return ResponseEntity.ok(events);
     }
 
@@ -58,9 +58,9 @@ public class DashboardController {
     }
 
     @GetMapping("/events")
-    public ResponseEntity<List<SensorEventDTO>> getAllEvents(
+    public ResponseEntity<List<SensorEvent>> getAllEvents(
             @RequestParam(required = false, defaultValue = "100") int limit) {
-        List<SensorEventDTO> events = sensorEventRepository.findAll();
+        List<SensorEvent> events = sensorEventRepository.findAll();
 
         if (events.size() > limit) {
             events = events.subList(0, limit);
@@ -70,8 +70,8 @@ public class DashboardController {
     }
 
     @GetMapping("/events/{sensorType}")
-    public ResponseEntity<List<SensorEventDTO>> getEventsBySensorType(@PathVariable String sensorType) {
-        List<SensorEventDTO> events = sensorEventRepository.findBySensorType(sensorType);
+    public ResponseEntity<List<SensorEvent>> getEventsBySensorType(@PathVariable String sensorType) {
+        List<SensorEvent> events = sensorEventRepository.findBySensorType(sensorType);
         return ResponseEntity.ok(events);
     }
 }
