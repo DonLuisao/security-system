@@ -23,10 +23,8 @@ public class SensorSimulatorService {
         this.dataProcessingService = dataProcessingService;
     }
 
-    /**
-     * Simula la llegada de un evento de sensor cada 5 segundos (5000ms).
-     * El procesamiento es asíncrono, liberando el hilo del scheduler.
-     */
+    // Simula la llegada de un evento de sensor cada 5 segundos (5000ms).
+    // El procesamiento es asíncrono, liberando el hilo del scheduler.
     @Scheduled(fixedRate = 5000)
     public void generateRandomSensorEvent() {
         String type = SENSOR_TYPES[random.nextInt(SENSOR_TYPES.length)];
