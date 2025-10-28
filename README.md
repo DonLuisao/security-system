@@ -8,7 +8,7 @@
 ---
 
 ## Descripción del proyecto
-Este proyecto implementa un sistema de seguridad avanzado y concurrente para Stark Industries, desarrollado con \*\*Spring Boot\*\*. El sistema está diseñado para procesar datos de múltiples sensores en tiempo real, generar alertas inmediatas y visualizarlas en un dashboard dinámico.
+Este proyecto implementa un sistema de seguridad avanzado y concurrente para Stark Industries, desarrollado con **Spring Boot**. El sistema está diseñado para procesar datos de múltiples sensores en tiempo real, generar alertas inmediatas y visualizarlas en un dashboard dinámico.
 
 ---
 
