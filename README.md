@@ -3,6 +3,7 @@
 ## Miembros del grupo:
 - Luis Sánchez Elvira
 - Pablo Lobato Gónzalez
+- Jiachen Ye
 
 ---
 
