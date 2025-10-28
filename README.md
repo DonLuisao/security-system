@@ -41,7 +41,7 @@ Este proyecto implementa un sistema de seguridad avanzado y concurrente para Sta
 2. Navega al direcotroio del proyecto
 3. Ejecuta: 'mvn spring-boot:run'
 4. El sistema estara disponible en el puerto 8080 (hhtps://localhost:8080), siempre y cuando este vacío. 
-
+5. Usuario: Persona1    Contraseña:Password1234
 ---
 
 ## 📜 Resumen
