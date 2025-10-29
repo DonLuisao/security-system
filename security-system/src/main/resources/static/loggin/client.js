@@ -19,34 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (user === VALID_USER && pass === VALID_PASS) {
             sessionStorage.setItem('authUser', user);
-
-            const protocol = window.location.protocol;
-            const targetPath = 'src/main/resources/static/panel/paneles.html';
             
-            if (protocol === 'http:' || protocol === 'https:') {
-                window.location.href = window.location.origin + '/' + targetPath;
-                return;
-            }
-
-            // Caso file://
-            if (protocol === 'file:') {
-                const pathname = decodeURI(window.location.pathname);
-                const srcIdx = pathname.indexOf('/src/');
-                
-                if (srcIdx !== -1) {
-                    const root = pathname.substring(0, srcIdx);
-                    const candidate = 'file://' + root + '/' + targetPath;
-                    window.location.href = candidate;
-                    return;
-                }
-
-                // Fallback para file://
-                window.location.href = targetPath;
-                return;
-            }
-
-            // fallback general
-            window.location.href = targetPath;
+            // Redirigir a paneles.html que está en la carpeta panel
+            window.location.href = 'panel/paneles.html';
             return;
         }
 
