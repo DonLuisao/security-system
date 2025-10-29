@@ -18,11 +18,19 @@ Este proyecto implementa un sistema de seguridad avanzado y concurrente para Sta
 - **pom.xml**: dependencias necesarias para la seguridad y dependencias, hemos utilizado Spring Boot y Loombok
 - **Aplication.properties**:
 
-### Modelos (model/)
+### Modelos (model/) 
+#### `-security-system\src\main\java\com\starkindustries\security_system\model\SensorEvent.java:`
+ Se trata de una entidad de base de datos que se mapea a la tabla "sensor_events" y almacena información crucial como el tipo de sensor,los datos crudos capturados, el resultado después del procesamiento, un indicador booleano que señala si el evento constituye una alerta y una marca de tiempo que se genera automáticamente al momento de crear el registro.
 
 ### Servicios (service/)
+#### `-security-system\src\main\java\com\starkindustries\security_system\service\DataProcessingService.java:`
+ Clase de servicio en Spring que procesa datos de sensores de seguridad de forma asíncrona,guarda en base de datos y envía notificaciones en tiempo real si hay alertas.
+#### `-security-system\src\main\java\com\starkindustries\security_system\service\SensorSimulatorService.java:`
+ Servicio simulador que genera eventos aleatorios de sensores cada 5 segundos,crea datos ficticios de 3 tipos de sensores (Temperatura, Movimiento, Acceso) y los envía al sistema para procesamiento.
 
 ### Controladores (controller/)
+#### `-security-system\src\main\java\com\starkindustries\security_system\controller\DashboardController.java:`
+Controlador REST que proporciona endpoints para el dashboard del sistema,expone APIs para consultar alertas, eventos recientes, métricas y filtros por tipo de sensor.
 
 ### Configuración (config/)
 
