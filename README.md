@@ -37,6 +37,11 @@ Endpoint POST único para recibir datos de sensores y enviarlos al servicio de p
 ### Configuración (config/)
 #### `-security-system\src\main\java\com\starkindustries\security_system\config\ASyncConfig.java:`
 Configura un pool de hilos para procesar eventos de sensores de forma concurrente.(hilos base,maximos...)
+#### `-security-system\src\main\java\com\starkindustries\security_system\config\SecurutyConfig.java:`
+Configuraciónes de seguridad para el desarrollo.
+#### `-security-system\src\main\java\com\starkindustries\security_system\config\WebSocketConfig.java:`
+Habilita conexiones WebSocket para enviar alertas y notificaciones en tiempo real.
+
 
 ---
 
@@ -85,6 +90,7 @@ El sistema simula la recepción de datos de diferentes tipos de sensores (movimi
 * **API REST para Sensores**: Un endpoint `POST /api/events` para que los sensores (simulados) envíen sus datos.
 
 * **Métricas y Gráficos**: Visualización del estado del sistema, contadores de eventos y un gráfico de distribución de actividad por tipo de sensor.
+  
 
 
 
