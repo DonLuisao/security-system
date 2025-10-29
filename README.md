@@ -69,11 +69,11 @@ security-system/
 ```
 
 ## 📂 Estructura del Proyecto
-
+---------------
 ### Archivos de Configuración
 - **pom.xml**: dependencias necesarias para la seguridad y dependencias, hemos utilizado Spring Boot y Loombok
-- **Aplication.properties**:
-
+- **Aplication.properties**: guarda informacion importante como el puerto en el que se ejecuta la aplicación(security-system), además de la base de datos h2(starkdb),configuración de logging,además de la propia configuración de spring para arrancar el programa
+--------------
 ### Modelos (model/) 
 #### `-security-system\src\main\java\com\starkindustries\security_system\model\SensorEvent.java:`
  Se trata de una entidad de base de datos que se mapea a la tabla "sensor_events" y almacena información crucial como el tipo de sensor,los datos crudos capturados, el resultado después del procesamiento, un indicador booleano que señala si el evento constituye una alerta y una marca de tiempo que se genera automáticamente al momento de crear el registro.
