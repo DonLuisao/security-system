@@ -31,6 +31,8 @@ Este proyecto implementa un sistema de seguridad avanzado y concurrente para Sta
 ### Controladores (controller/)
 #### `-security-system\src\main\java\com\starkindustries\security_system\controller\DashboardController.java:`
 Controlador REST que proporciona endpoints para el dashboard del sistema,expone APIs para consultar alertas, eventos recientes, métricas y filtros por tipo de sensor.
+#### `-security-system\src\main\java\com\starkindustries\security_system\controller\SensorEventController.java:`
+Endpoint POST único para recibir datos de sensores y enviarlos al servicio de procesamiento.
 
 ### Configuración (config/)
 
@@ -49,8 +51,9 @@ Controlador REST que proporciona endpoints para el dashboard del sistema,expone 
 1. Debe tener Java 17+ en su dispositivo
 2. Navega al directorio del proyecto
 3. Ejecuta: 'mvn spring-boot:run'
-4. El sistema estara disponible en el puerto 8080 (hhtps://localhost:8080), siempre y cuando este vacío. 
-5. Inicia sesion con las siguientes credenciales:  Usuario=Persona1    Contraseña=Password1234
+4. El sistema estara disponible en el puerto 8080 (hhtps://localhost:8080), siempre y cuando este vacío.
+5. Se abre index.htm, una pagina de inicio de sesión
+6. Inicia sesion con las siguientes credenciales:  Usuario=Persona1    Contraseña=Password1234
 ---
 
 ## 📜 Resumen
