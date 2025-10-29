@@ -8,7 +8,7 @@
             "type": "msedge",
             "request": "launch",
             "name": "Open inicio.html",
-            "file": "c:\\Users\\jiach\\Documents\\GitHub\\security-system\\security-system\\src\\main\\java\\com\\starkindustries\\security_system\\loggin\\inicio.html"
+            "file": "${workspaceFolder}/security-system/src/main/java/com/starkindustries/security_system/loggin/inicio.html"
         }
     ]
 }
