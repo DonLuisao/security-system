@@ -25,6 +25,10 @@ Este proyecto implementa un sistema de seguridad avanzado y concurrente para Sta
 ### Servicios (service/)
 #### `-security-system\src\main\java\com\starkindustries\security_system\service\DataProcessingService.java:`
  Clase de servicio en Spring que procesa datos de sensores de seguridad de forma asíncrona,guarda en base de datos y envía notificaciones en tiempo real si hay alertas.
+#### `-security-system\src\main\java\com\starkindustries\security_system\service\SensorSimulatorService.java:`
+ Servicio simulador que genera eventos aleatorios de sensores cada 5 segundos,crea datos ficticios de 3 tipos de sensores (Temperatura, Movimiento, Acceso) y los envía al sistema para procesamiento.
+
+
 
 ### Controladores (controller/)
 
