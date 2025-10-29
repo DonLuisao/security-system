@@ -12,6 +12,62 @@ Este proyecto implementa un sistema de seguridad avanzado y concurrente para Sta
 
 ---
 
+## Diagarama del Proyecto
+```text
+security-system/
+├── README.md
+├── mvnw.cmd
+├── mvnw
+├── .gitignore
+├── .gitattributes
+├── pom.xml (o build.gradle)
+├── test-sensors.sh
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com.starkindustries.security_system/
+│   │   │       ├── SecuritySystemApplication.java
+│   │   │       ├── service/
+│   │   │       │   ├── [ASyncConfig.java]
+│   │   │       │   ├── [SecurityConfig.java]
+│   │   │       │   └── [WebSocketConfig.java]
+│   │   │       ├── controller/
+│   │   │       │   ├── [DashboardController.java]
+│   │   │       │   └── [SensorEventController.java]
+│   │   │       ├── dto/
+│   │   │       │   └── [SensorEventDTO.java]
+│   │   │       ├── model/
+│   │   │       │   └── [SensorEvent.java]
+│   │   │       ├── repository/
+│   │   │       │   └── [SensorEventRepository.java]
+│   │   │       ├── sensors/
+│   │   │       │   ├── [AccessSensor.java]
+│   │   │       │   ├── [MovementSensor.java]
+│   │   │       │   └── [Sensor.java]
+│   │   │       │   └── [TemperatureSensor.java]
+│   │   │       └── service/
+│   │   │           ├── [DataProcessingService.java]
+│   │   │           └── [SensorSimulatorService.java]
+│   │   └── resources/
+│   │       ├── static/
+│   │       │   ├── loggin/
+│   │       │   │   ├── client.js
+│   │       │   │   └── styles.css
+│   │       │   ├── panel/
+│   │       │   │   ├── dashboard.js
+│   │       │   │   ├── paneles.html
+│   │       │   │   └── styles.css
+│   │       │   └── index.html
+│   │       └── application.properties    
+│   └── test/
+│       └── java/
+│           └── com.starkindustries.security_system/
+│               └── SecuritySystemApplicationTests.java
+└── .mvn/
+    └── wrapper/
+        └── maven-wrapper.properties
+```
+
 ## 📂 Estructura del Proyecto
 
 ### Archivos de Configuración
