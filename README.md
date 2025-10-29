@@ -20,11 +20,11 @@ Este proyecto implementa un sistema de seguridad avanzado y concurrente para Sta
 
 ### Modelos (model/) 
 #### `-security-system\src\main\java\com\starkindustries\security_system\model\SensorEvent.java:`
-#### Se trata de una entidad de base de datos que se mapea a la tabla "sensor_events" y almacena información crucial como el tipo de sensor,los datos crudos capturados, el resultado después del procesamiento, un indicador booleano que señala si el evento constituye una alerta y una marca de tiempo que se genera automáticamente al momento de crear el registro.
+ Se trata de una entidad de base de datos que se mapea a la tabla "sensor_events" y almacena información crucial como el tipo de sensor,los datos crudos capturados, el resultado después del procesamiento, un indicador booleano que señala si el evento constituye una alerta y una marca de tiempo que se genera automáticamente al momento de crear el registro.
 
 ### Servicios (service/)
-#### `security-system\src\main\java\com\starkindustries\security_system\service\DataProcessingService.java:`
-#### Clase de servicio en Spring que procesa datos de sensores de seguridad de forma asíncrona,guarda en base de datos y envía notificaciones en tiempo real si hay alertas.
+#### `-security-system\src\main\java\com\starkindustries\security_system\service\DataProcessingService.java:`
+ Clase de servicio en Spring que procesa datos de sensores de seguridad de forma asíncrona,guarda en base de datos y envía notificaciones en tiempo real si hay alertas.
 
 ### Controladores (controller/)
 
