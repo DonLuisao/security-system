@@ -47,10 +47,15 @@ Habilita conexiones WebSocket para enviar alertas y notificaciones en tiempo rea
 
 ## Lógica de Solución
 ### Gestión de sensores
-### Procesamiento concurrente
+El sistema implementa una gestión flexible de sensores mediante el patrón de diseño Strategy, donde cada tipo de sensor (movimiento, temperatura, acceso) se encapsula en beans que implementan una interfaz común. Esta arquitectura permite procesar datos específicos según el tipo de sensor, generando alertas inteligentes cuando se detectan condiciones anómalas como temperaturas elevadas, movimientos inesperados o intentos de acceso denegados. La simulación incorporada facilita las pruebas durante el desarrollo sin depender de hardware físico.
+### Procesamiento concurrente:
+Para garantizar escalabilidad y capacidad de respuesta, el sistema utiliza procesamiento asíncrono configurado mediante un ThreadPoolTaskExecutor personalizado. Este pool de hilos maneja hasta 50 hilos concurrentes con una cola de 100 tareas pendientes, permitiendo que múltiples eventos de sensores se procesen simultáneamente sin bloquear el hilo principal de la aplicación. Esta aproximación asegura que el sistema mantenga un alto rendimiento incluso bajo cargas elevadas de eventos.
 ### Spring Security
+La seguridad se configura en modo abierto para facilitar el desarrollo y las pruebas, deshabilitando CSRF y permitiendo todas las peticiones sin autenticación. Aunque esta configuración es adecuada para entornos de desarrollo, en producción se recomendaría implementar mecanismos de autenticación robustos como OAuth2 o JWT para proteger los endpoints críticos del sistema de seguridad.
 ### Notificaciones en tiempo real
+La comunicación bidireccional se implementa mediante WebSocket con STOMP, permitiendo que las alertas críticas se propaguen instantáneamente a todos los clientes conectados. Cuando un sensor genera una alerta, el sistema publica automáticamente una notificación en el topic "/topic/alerts", que los dashboards reciben y visualizan sin necesidad de realizar polling constante al servidor.
 ### Monitorización
+El sistema proporciona un dashboard completo que muestra métricas en tiempo real, incluyendo el total de eventos, distribución por tipo de sensor, alertas activas y eventos recientes. Los endpoints REST permiten consultar información histórica y filtrar por tipos específicos de sensores, mientras que la integración con Chart.js facilita la visualización de datos mediante gráficos interactivos que ayudan en el análisis.
 
 ---
 
