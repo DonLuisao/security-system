@@ -19,6 +19,8 @@ Este proyecto implementa un sistema de seguridad avanzado y concurrente para Sta
 - **Aplication.properties**:
 
 ### Modelos (model/)
+### **security-system\security-system\src\main\java\com\starkindustries\security_system\model\SensorEvent.java**:
+#### Se trata de una entidad de base de datos que se mapea a la tabla "sensor_events" y almacena información crucial como el tipo de sensor,los datos crudos capturados, el resultado después del procesamiento, un indicador booleano que señala si el evento constituye una alerta y una marca de tiempo que se genera automáticamente al momento de crear el registro.
 
 ### Servicios (service/)
 
