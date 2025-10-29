@@ -35,6 +35,8 @@ Controlador REST que proporciona endpoints para el dashboard del sistema,expone 
 Endpoint POST único para recibir datos de sensores y enviarlos al servicio de procesamiento.
 
 ### Configuración (config/)
+#### `-security-system\src\main\java\com\starkindustries\security_system\config\ASyncConfig.java:`
+Configura un pool de hilos para procesar eventos de sensores de forma concurrente.(hilos base,maximos...)
 
 ---
 
