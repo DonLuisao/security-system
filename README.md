@@ -28,9 +28,9 @@ Este proyecto implementa un sistema de seguridad avanzado y concurrente para Sta
 #### `-security-system\src\main\java\com\starkindustries\security_system\service\SensorSimulatorService.java:`
  Servicio simulador que genera eventos aleatorios de sensores cada 5 segundos,crea datos ficticios de 3 tipos de sensores (Temperatura, Movimiento, Acceso) y los envía al sistema para procesamiento.
 
-
-
 ### Controladores (controller/)
+#### `-security-system\src\main\java\com\starkindustries\security_system\controller\DashboardController.java:`
+Controlador REST que proporciona endpoints para el dashboard del sistema,expone APIs para consultar alertas, eventos recientes, métricas y filtros por tipo de sensor.
 
 ### Configuración (config/)
 
