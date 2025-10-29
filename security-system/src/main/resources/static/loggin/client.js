@@ -1,4 +1,3 @@
-
 const VALID_USER = 'Persona1';
 const VALID_PASS = 'Password1234';
 
@@ -23,28 +22,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const protocol = window.location.protocol;
             if (protocol === 'http:' || protocol === 'https:') {
-                window.location.href = window.location.origin + '/index.html';
+                window.location.href = window.location.origin + '/panel/paneles.html';
                 return;
             }
 
-            // Caso file:// — intenta redirigir a resources/static/index.html dentro del proyecto
+            // Caso file:// — intenta redirigir a paneles.html
             if (protocol === 'file:') {
                 const pathname = decodeURI(window.location.pathname);
                 const srcIdx = pathname.indexOf('/src/');
                 if (srcIdx !== -1) {
                     const root = pathname.substring(0, srcIdx);
-                    const candidate = 'file://' + root + '/src/main/resources/static/index.html';
+                    const candidate = 'file://' + root + '/src/main/resources/static/panel/paneles.html';
                     window.location.href = candidate;
                     return;
                 }
 
                 // fallback: index.html en la misma carpeta que inicio.html
-                window.location.href = 'index.html';
+                window.location.href = '/panel/paneles.html';
                 return;
             }
 
             // fallback general
-            window.location.href = 'index.html';
+            window.location.href = '/panel/paneles.html';
             return;
         }
 
